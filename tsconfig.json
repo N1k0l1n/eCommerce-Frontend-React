@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "preserveSymlinks": false,
     "target": "es5",
     "lib": [
       "dom",
