@@ -7,6 +7,11 @@ import ContactPage from "../features/contact/ContactPage";
 import HomePage from "../features/home/HomePage";
 import Header from "./Header";
 import {Switch, Route} from "react-router-dom"
+import ErrorPage from "../features/error/ErrorPage";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import ServerError from "../features/error/ServerError";
+import NotFoundPage from "../features/error/NotFoundPage";
 
 function App() {
 
@@ -32,6 +37,7 @@ function App() {
 
       return (
                   <ThemeProvider theme={theme}>
+                    <ToastContainer position="bottom-right" hideProgressBar/>
                     <CssBaseline/>
                       <Header darkMode={darkMode} handleThemeChange={handleThemeChange}  />
                         <Container>
@@ -40,7 +46,11 @@ function App() {
                              <Route exact path="/catalog" component={Catalog} />
                              <Route path="/catalog/:id" component={ProductDetails} />
                              <Route path="/about" component={AboutPage} />
+                             <Route path="/error" component={ErrorPage} />
+                             <Route path="/server-error" component={ServerError} />
                              <Route path="/contact" component={ContactPage} />
+                             {/* If none of this routes dont match it will return the component below */}
+                             <Route component={NotFoundPage} />
                           </Switch>
                         </Container>
                   </ThemeProvider>

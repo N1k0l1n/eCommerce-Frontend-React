@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "useUnknownInCatchVariables": false,
     "preserveSymlinks": false,
     "target": "es5",
     "lib": [
