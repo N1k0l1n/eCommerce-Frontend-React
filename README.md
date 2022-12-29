@@ -1,3 +1,6 @@
+![eCommerce darktheme](https://user-images.githubusercontent.com/97979235/209680704-8cd27a78-e235-4b76-a9dc-a367f81f1ee5.JPG)
+![eCommerce product](https://user-images.githubusercontent.com/97979235/209680706-131a62cc-1e8d-4c12-bae3-c2df6cc2bb48.JPG)
+![eCommerce](https://user-images.githubusercontent.com/97979235/209680708-28bb51df-3eb6-453c-9950-517317dab833.JPG)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -6,7 +9,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm start`,
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
