@@ -3,6 +3,7 @@ import App from './app/layout/App';
 import { render } from 'react-dom';
 import {  Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { StoreProvider } from './app/context/StoreContext';
 
 
 
@@ -13,7 +14,9 @@ const rootElement = document.getElementById('root');
 render(
   <React.StrictMode>
     <Router history={history}>
-      <App />
+      <StoreProvider>
+        <App />
+      </StoreProvider>
     </Router>
   </React.StrictMode>,
   rootElement
