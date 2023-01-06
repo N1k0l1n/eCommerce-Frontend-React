@@ -5,7 +5,9 @@ import CardHeader from "@mui/material/CardHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import agent from "../../api/agent";
+import { useStoreContext } from "../../context/StoreContext";
 import { Product } from "../../models/product";
+import { currencyFormat } from "../../util/util";
 
 
 interface Props {
@@ -15,10 +17,12 @@ interface Props {
 export default function ProductCard({product}:Props){
 
     const [loading, setLoading] = useState(false);
+    const {setBasket} = useStoreContext();
 
     function handleAddItem (productId : number){
         setLoading(true);
         agent.Basket.addItem(productId)
+         .then(basket=>setBasket(basket))
              .catch(error=>console.log(error))
              .finally(()=>setLoading(false));
 }
@@ -47,7 +51,7 @@ export default function ProductCard({product}:Props){
 
             <CardContent>
                 <Typography gutterBottom color='secondary' variant="h5">
-                     ${(product.price/100).toFixed(2)}
+                     {currencyFormat(product.price)}
                  </Typography>
               <Typography variant="body2" color="text.secondary">
                     {product.brand}/{product.type}
