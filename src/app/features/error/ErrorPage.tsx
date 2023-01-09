@@ -16,7 +16,7 @@ const ErrorPage = () => {
 
   return (
    <Container>
-      <Typography gutterBottom variant='h2'>Errors for tesiting purposes</Typography>
+      <Typography gutterBottom variant='h2'>Errors for testing purposes</Typography>
       <ButtonGroup fullWidth>
           <Button variant='contained' onClick={
             ()=>agent.TestErrors.get400Error().catch(error=>console.log(error))}> Test 400 Error</Button>

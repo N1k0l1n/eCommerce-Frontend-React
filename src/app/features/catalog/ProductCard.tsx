@@ -5,9 +5,11 @@ import CardHeader from "@mui/material/CardHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import agent from "../../api/agent";
-import { useStoreContext } from "../../context/StoreContext";
+// import { useStoreContext } from "../../context/StoreContext";
 import { Product } from "../../models/product";
+import { useAppDispatch } from "../../store/configureStore";
 import { currencyFormat } from "../../util/util";
+import { setBasket } from "../basket/basketSlice";
 
 
 interface Props {
@@ -17,12 +19,17 @@ interface Props {
 export default function ProductCard({product}:Props){
 
     const [loading, setLoading] = useState(false);
-    const {setBasket} = useStoreContext();
+    //Model with Redux toolkit
+    const dispatch = useAppDispatch();
+
+
+    //Example with store context
+    //const {setBasket} = useStoreContext();
 
     function handleAddItem (productId : number){
         setLoading(true);
         agent.Basket.addItem(productId)
-         .then(basket=>setBasket(basket))
+             .then(basket=>dispatch(setBasket(basket)))
              .catch(error=>console.log(error))
              .finally(()=>setLoading(false));
 }
